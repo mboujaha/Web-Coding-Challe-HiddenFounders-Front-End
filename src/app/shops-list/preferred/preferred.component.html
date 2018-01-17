@@ -1,0 +1,11 @@
+<div class="card-columns">
+  <div class="card text-center" *ngFor="let shop of preferredShops">
+    <div class="card-footer">
+      <p class="card-text"><strong class="text-muted">{{ shop.name}}</strong></p>
+    </div>
+    <img class="card-img-top" [src]="shop.picture" alt="{{ shop.city }}">
+    <div style="margin: 6px">
+      <button   class="btn btn-outline-danger btn-sm btn-block"  (click)="onRemoveShop(shop)">Remove <span class="fa fa-remove"></span></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a routerLink="/"><span class="navbar-brand mb-0 h1">Shopify</span></a>
+  <div class="pull-right">
+    <ul class="nav navbar-nav flex-row">
+      <li class="nav-item" routerLinkActive="active" *ngIf="!isUserLogged"><a style="cursor: pointer;"
+                                                                              class="nav-link pr-3"
+                                                                              routerLink="/register"><span
+        class="fa fa-user-o nav-link"></span> Sign Up</a></li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="!isUserLogged"><a style="cursor: pointer;"
+                                                                              class="nav-link pr-3" routerLink="/login"><span
+        class="fa fa-sign-in nav-link"></span> Login</a></li>
+
+      <!-- For logged Users -->
+
+      <li class="nav-item" routerLinkActive="active" *ngIf="isUserLogged"><a style="cursor: pointer;"
+                                                                             class="nav-link pr-3"
+                                                                             routerLink="/shops/nearby"><span
+        class="fa fa-map-marker nav-link" style="color: darkcyan;"></span> NearBy Shops</a></li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="isUserLogged"><a style="cursor: pointer;"
+                                                                             class="nav-link pr-3"
+                                                                             routerLink="/shops/preferred"><span
+        class="fa fa-heart-o nav-link" style="color: red;"></span> My preferred Shops</a></li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="isUserLogged"><a style="cursor: pointer;"
+                                                                             class="nav-link pr-3" (click)="onLogout()"><span
+        class="fa fa-sign-in nav-link"></span> Logout</a></li>
+      -
+    </ul>
+  </div>
+</nav>

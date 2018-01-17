@@ -1,0 +1,49 @@
+<div class="row offset-2">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <form (ngSubmit)="onLogin(f)" #f="ngForm">
+      <div class="row">
+        <div class="col-xs">
+          <h2>Please Login</h2>
+          <hr>
+        </div>
+      </div>
+
+      <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+        {{ errorMessage}}
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-control" ngModel required email #emailField="ngModel"/>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" ngModel required minlength="8"
+               #passwordField="ngModel"/>
+      </div>
+
+      <div *ngIf="f.invalid && f.touched">
+        <div *ngIf="emailField.invalid && emailField.touched" class="alert alert-danger" role="alert">A valid email is
+          required
+        </div>
+        <div *ngIf="passwordField.invalid && passwordField.touched" class="alert alert-danger" role="alert">Password is
+          required and must contain at least 8
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <button class="btn btn-primary btn-group-sm btn-block" type="submit" [disabled]="f.invalid"><i
+            class="glyphicon glyphicon-log-in pull-left"></i>Sign in
+          </button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-danger btn-group-sm btn-block" type="button" (click)="clearForm(f)"><i
+            class="glyphicon glyphicon-erase pull-left"></i>Reset
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
